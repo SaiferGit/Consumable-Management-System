@@ -15,7 +15,6 @@ public class SeeConsumable implements Printable{
 
     @Override
     public void initials() {
-        System.out.println("From See Consumable Class.....");
         System.out.println(StringBase.listType);
 
     }

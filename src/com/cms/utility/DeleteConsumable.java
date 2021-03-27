@@ -35,11 +35,7 @@ public class DeleteConsumable implements Printable{
             ArtView view = new ArtView();
             ArtController controller = new ArtController(art, view);
             if(controller.getArtName().equals(name)){
-                if(!art.isEndingDateUpdated())
-                    return art;
-                else{
-                    System.out.printf("You can not update %s TWICE!%n", name);
-                }
+                return art;
             }
         }
         System.out.println("The Name You have entered, is Not Found");
