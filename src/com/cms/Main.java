@@ -1,10 +1,10 @@
 package com.cms;
 
-import com.cms.controller.ArtController;
+
 import com.cms.database.Database;
+import com.cms.database.StringBase;
 import com.cms.model.Art;
 import com.cms.utility.*;
-import com.cms.view.ArtView;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,26 +15,9 @@ public class Main {
     private static Scanner in = new Scanner(System.in);
     private static ArrayList<Art> artList= new ArrayList<>();
 
-    private static final String welcome ="====================================================================\n"
-            + "| Welcome to Consumer Management System. Enter value [1-6] for below actions.\n"
-            + "+----------------------------------------+\n"
-            + "| 1. Add a consumable                    |\n"
-            + "+----------------------------------------+\n"
-            + "| 2. Edit a consumable                   |\n"
-            + "+----------------------------------------+\n"
-            + "| 3. Delete a consumable                 |\n"
-            + "+----------------------------------------+\n"
-            + "| 4. See the list of consumables         |\n"
-            + "+----------------------------------------+\n"
-            + "| 5. See Overall info                    |\n"
-            + "+----------------------------------------+\n"
-            + "| 6. Exit                                |\n"
-            + "====================================================================\n";
-    private static String rowLine = "+------------+-------------------------+---------------"
-            + "+---------------+--------------------------+----------+-------------------------+";
     public static void main(String[] args) {
 
-        System.out.print(welcome);
+        System.out.print(StringBase.welcome);
         initializingDemoObj();
 
         while(option >= 1 && option < 6){
@@ -43,8 +26,9 @@ public class Main {
 
             switch (option){
                 case 1:// Add a consumable
-                    new AddConsumable().initials();
-                    artList.add(new AddConsumable().inputCredentials());
+                    AddConsumable addConsumable = new AddConsumable();
+                    addConsumable.initials();
+                    artList.add(addConsumable.inputCredentials());
                     System.out.println("Consumable added successfully!!!");
                     break;
 
@@ -71,7 +55,6 @@ public class Main {
             }
 
         }
-
         exitTerminal();
     }
 

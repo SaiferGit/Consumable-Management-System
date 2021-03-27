@@ -1,21 +1,17 @@
 package com.cms.utility;
 
 import com.cms.controller.ArtController;
+import com.cms.database.StringBase;
 import com.cms.model.Art;
 import com.cms.view.ArtView;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static com.cms.database.StringBase.endingDateWarningMessage;
+
 public class EditConsumable implements Printable, Inputtable{
 
-    private final String rowRuler = "====================================================\n";
-    private final String welcome = "Welcome to Editable field.\n"
-            + rowRuler
-            + "Enter Total consumption time: ";
-    private final String endingDateWarningMessage = "Enter Consumption Ending Date: "
-            + "Warning: once updated, the consumable can not be edited anymore"
-            + "[Press Enter to Escape]";
     Scanner input = new Scanner(System.in);;
     private String  name, endingDate;
     private double rating, totalConsumptionHours;
@@ -43,7 +39,7 @@ public class EditConsumable implements Printable, Inputtable{
             artList.set(index, art);
             System.out.println("Successfully updated");
         }
-        System.out.println(rowRuler);
+        System.out.println(StringBase.rowRuler);
     }
 
     private Art findConsumable(ArrayList<Art> artList) {
@@ -63,7 +59,7 @@ public class EditConsumable implements Printable, Inputtable{
 
     @Override
     public void inputCredentials() {
-        System.out.println(welcome);
+        System.out.println(StringBase.editWelcome);
         totalConsumptionHours = input.nextDouble();
         art.setTotalConsumptionHours(totalConsumptionHours);
         System.out.println("Enter Consumption Days: ");

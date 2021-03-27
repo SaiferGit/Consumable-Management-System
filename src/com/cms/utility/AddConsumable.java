@@ -1,14 +1,13 @@
 package com.cms.utility;
 
 import com.cms.Main;
+import com.cms.database.StringBase;
 import com.cms.model.Art;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddConsumable implements Printable{
-    private final String welcome = "Enter Consumable Type [1-3]: \n"
-            + "1. Book\n" + "2. Series\n" + "3. Movie\n";
     Scanner input;
     String name, startingDate, endingDate, type;
     int choice, totalConsumptionDays;
@@ -18,8 +17,7 @@ public class AddConsumable implements Printable{
 
     @Override
     public void initials() {
-        System.out.println("From Add Consumable Class.....");
-        System.out.println(welcome);
+        System.out.println(StringBase.consumableType);
     }
 
 
@@ -49,7 +47,6 @@ public class AddConsumable implements Printable{
         totalConsumptionDays = input.nextInt();
         System.out.print("\nEnter Toal Consumption (in hours): ");
         totalConsumptionHours = input.nextDouble();
-        input.close();
         art = new Art();
         art.setArt(type, name, startingDate, endingDate, totalConsumptionHours, rating, totalConsumptionDays);
         return art;

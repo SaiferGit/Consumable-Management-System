@@ -1,6 +1,7 @@
 package com.cms.utility;
 
 import com.cms.controller.ArtController;
+import com.cms.database.StringBase;
 import com.cms.model.Art;
 import com.cms.view.ArtView;
 
@@ -9,19 +10,13 @@ import java.util.Scanner;
 
 public class SeeConsumable implements Printable{
 
-    private final String consumableType = "Enter Consumable Type [1-3]: \n"
-            + "1. Book\n" + "2. Series\n" + "3. Movie\n";
-    private final String listType = "You Want to visualize: \n"
-            + "1. All the List\n" + "2. Individually\n" + "Enter Choice: ";
-    private String rowLine = "+------------+-------------------------+---------------"
-            + "+---------------+--------------------------+----------+-------------------------+";
-
     Scanner input;
     int choice;
+
     @Override
     public void initials() {
         System.out.println("From See Consumable Class.....");
-        System.out.println(listType);
+        System.out.println(StringBase.listType);
 
     }
 
@@ -37,7 +32,7 @@ public class SeeConsumable implements Printable{
         choice = input.nextInt();
         if(choice == 1) displayList(artList);
         else{
-            System.out.println(consumableType);
+            System.out.println(StringBase.consumableType);
             choice = input.nextInt();
             switch (choice){
                 case 1:
@@ -57,13 +52,13 @@ public class SeeConsumable implements Printable{
 
     private void displaySpecific(String type, ArrayList<Art> artList) {
         headerFormat();
-        System.out.println(rowLine);
+        System.out.println(StringBase.rowLine);
         for(Art art : artList){
             ArtView view = new ArtView();
             ArtController controller = new ArtController(art, view);
             controller.showSpecific(type);
         }
-        System.out.println(rowLine);
+        System.out.println(StringBase.rowLine);
     }
 
     private void displayList(ArrayList<Art> artList) {
@@ -71,14 +66,14 @@ public class SeeConsumable implements Printable{
         for(Art art : artList){
             ArtView view = new ArtView();
             ArtController controller = new ArtController(art, view);
-            System.out.println(rowLine);
+            System.out.println(StringBase.rowLine);
             controller.showDetails();
         }
-        System.out.println(rowLine);
+        System.out.println(StringBase.rowLine);
     }
 
     private void headerFormat() {
-        System.out.println(rowLine);
+        System.out.println(StringBase.rowLine);
         System.out.format("|%-12s|%-25s|%-15s|%-15s|%-26s|%-10s|%-10s|%n", "Type", "Name",
                 "Starting Date", "Ending Date", "Total Consumption (Hour)", "Rating", "Total Days of Consumption");
     }

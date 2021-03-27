@@ -1,6 +1,7 @@
 package com.cms.utility;
 
 import com.cms.controller.ArtController;
+import com.cms.database.StringBase;
 import com.cms.model.Art;
 import com.cms.view.ArtView;
 
@@ -17,14 +18,9 @@ public class OverallInfo implements Printable{
     private int totalConsumable = 0, bookConsumable = 0, seriesConsumable = 0
             , movieConsumable = 0;
 
-    private static final String welcome =
-            "========================================"
-            +"Overall Info: \n"
-            + "========================================\n";
-
     @Override
     public void initials() {
-        System.out.println(welcome);
+        System.out.println(StringBase.overallWelcomeString);
     }
 
     public void overallInfo(ArrayList<Art> artList) {
@@ -49,7 +45,7 @@ public class OverallInfo implements Printable{
             }
         }
         System.out.printf("|Average rating across all types: %.2f                    |%n", (totalavgRating/ (double) count));
-        System.out.printf("|---------------------------------------------------------|\n");
+        System.out.printf(StringBase.flatRuler);
 
     }
 
@@ -81,7 +77,7 @@ public class OverallInfo implements Printable{
         System.out.printf("|(Book): %.2f%n", (booksRating/ (double) totalBooks));
         System.out.printf("|(Movie): %.2f%n", (movieRating/ (double) totalMovies));
         System.out.printf("|(Series): %.2f%n", (seriesRating/ (double) totalSeries));
-        System.out.printf("|---------------------------------------------------------|\n");
+        System.out.printf(StringBase.flatRuler);
     }
 
     private void showIndividualConsumptionDays(ArrayList<Art> artList) {
@@ -102,14 +98,14 @@ public class OverallInfo implements Printable{
         System.out.printf("|(Book): %d%n", bookDaysConsump);
         System.out.printf("|(Movie): %d%n", movieDaysConsump);
         System.out.printf("|(Series): %d%n", seriesDaysConsump);
-        System.out.printf("|---------------------------------------------------------|\n");
+        System.out.printf(StringBase.flatRuler);
     }
 
     private void showTotalConsumable(ArrayList<Art> artList) {
         totalConsumable = artList.size();
         System.out.printf("|Total number of consumable across all types: %d          |%n",
                 totalConsumable);
-        System.out.printf("|---------------------------------------------------------|\n");
+        System.out.printf(StringBase.flatRuler);
     }
 
     private void showIndividualConsumable(ArrayList<Art> artList) {
@@ -130,7 +126,7 @@ public class OverallInfo implements Printable{
         System.out.printf("|(Book): %d%n", bookConsumable);
         System.out.printf("|(Movie): %d%n", movieConsumable);
         System.out.printf("|(Series): %d%n", seriesConsumable);
-        System.out.printf("|---------------------------------------------------------|\n");
+        System.out.printf(StringBase.flatRuler);
     }
 
     private void showTotalConsumptionDays(ArrayList<Art> artList) {
@@ -144,7 +140,7 @@ public class OverallInfo implements Printable{
         }
         System.out.printf("|Total days of consumption across all types:  %d          |%n",
                 totalDaysConsumption);
-        System.out.printf("|---------------------------------------------------------|\n");
+        System.out.printf(StringBase.flatRuler);
     }
 
     private void showIndividualTimeConsumption(ArrayList<Art> artList) {
@@ -165,7 +161,7 @@ public class OverallInfo implements Printable{
         System.out.printf("|(Book): %.2f%n", bookTimeConsump);
         System.out.printf("|(Movie): %.2f%n", movieTimeConsump);
         System.out.printf("|(Series): %.2f%n", seriesTimeConsump);
-        System.out.printf("|---------------------------------------------------------|\n");
+        System.out.printf(StringBase.flatRuler);
     }
 
     private void showTotalTimeConsumption(ArrayList<Art> artList) {
@@ -175,8 +171,8 @@ public class OverallInfo implements Printable{
             totalTimeConsumption += controller.getArtTotalConsumptionHours();
         }
 
-        System.out.printf("|=========================================================|\n");
+        System.out.printf(StringBase.rowRuler);
         System.out.printf("|Total consumption time in hours across all types: %.2f%n", totalTimeConsumption);
-        System.out.printf("|---------------------------------------------------------|\n");
+        System.out.printf(StringBase.flatRuler);
     }
 }
