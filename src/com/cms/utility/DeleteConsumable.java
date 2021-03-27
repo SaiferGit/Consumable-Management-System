@@ -16,6 +16,7 @@ public class DeleteConsumable implements Printable{
     public void initials() {
         System.out.print("Enter the consumable you want to delete: ");
         name = input.nextLine();
+
     }
 
     public boolean deleteConsumable(ArrayList<Art> artArrayList){

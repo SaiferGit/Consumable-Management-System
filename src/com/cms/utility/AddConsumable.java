@@ -49,6 +49,7 @@ public class AddConsumable implements Printable{
         totalConsumptionDays = input.nextInt();
         System.out.print("\nEnter Toal Consumption (in hours): ");
         totalConsumptionHours = input.nextDouble();
+        input.close();
         art = new Art();
         art.setArt(type, name, startingDate, endingDate, totalConsumptionHours, rating, totalConsumptionDays);
         return art;

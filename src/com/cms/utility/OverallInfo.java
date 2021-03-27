@@ -48,7 +48,7 @@ public class OverallInfo implements Printable{
                 count ++;
             }
         }
-        System.out.printf("|Average rating across all types: %.2lf                   |", (totalavgRating/ (double) count));
+        System.out.printf("|Average rating across all types: %.2f                    |%n", (totalavgRating/ (double) count));
         System.out.printf("|---------------------------------------------------------|\n");
 
     }
