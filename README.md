@@ -5,6 +5,8 @@ Welcome. **This CLI project is under instruction of DSI**.
 - Keeping track of the pieces of art (series, movies, books) that a person consume.
 
 ## Features:
+- Welcome Functionality
+![](https://github.com/SaiferGit/Consumable-Management-System/blob/main/Snapshots/1_ss1.png)
 - Add a consumable
   - Choose consumable type: Either Books, Series or Movie.
   - Every consumable should have following properties (* fields are mandatory):
