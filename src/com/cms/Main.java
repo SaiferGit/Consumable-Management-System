@@ -48,11 +48,12 @@ public class Main {
                     break;
 
                 case 2: // Edit a consumable
-                    new EditConsumable().initials();
+                    EditConsumable delconsumable = new EditConsumable();
+                    delconsumable.findandEditConsumable(artList);
                     break;
 
                 case 3: // Delete a consumable
-                    new DeleteConsumable().initials();
+                    //DeleteConsumable delconsumable = new DeleteConsumable();
                     break;
 
                 case 4: // See the list of consumables
@@ -68,7 +69,7 @@ public class Main {
             }
 
         }
-        //printArrayList();
+
         exitTerminal();
     }
 
@@ -112,27 +113,6 @@ public class Main {
 
     }
 
-    private static void display() {
-        if(artList.isEmpty()){
-            System.out.println("No Art has recorded");
-            return;
-        }
-        System.out.println(rowLine);
-        System.out.format("|%-12s|%-25s|%-15s|%-15s|%-26s|%-10s|%-10s|%n", "Type", "Name",
-                "Starting Date", "Ending Date", "Total Consumption (Hour)", "Rating", "Total Days of Consumption");
-        for(Art art : artList){
-            ArtView view = new ArtView();
-            ArtController controller = new ArtController(art, view);
-            System.out.println(rowLine);
-            controller.showDetails();
-        }
-        System.out.println(rowLine);
-    }
-
-    private static void printArrayList() {
-        //System.out.println(art);
-
-    }
 
     private static void exitTerminal() {
         System.out.print("Exiting Terminal ...");
