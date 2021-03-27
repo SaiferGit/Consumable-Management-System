@@ -66,7 +66,7 @@ public class Main {
                     break;
 
                 case 5: // See Overall info
-                    new OverallInfo().initials();
+                    new OverallInfo().overallInfo(artList);
                     break;
             }
 
@@ -115,13 +115,9 @@ public class Main {
 
     }
 
-
     private static void exitTerminal() {
         System.out.print("Exiting Terminal ...");
         in.close();
     }
-
-
-
 
 }
