@@ -1,12 +1,48 @@
 package com.cms.utility;
 
+import com.cms.controller.ArtController;
+import com.cms.model.Art;
+import com.cms.view.ArtView;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DeleteConsumable implements Printable{
 
+    private String name;
+    Scanner input = new Scanner(System.in);
+
     @Override
     public void initials() {
-        System.out.println("From Delete Consumable Class.....");
+        System.out.print("Enter the consumable you want to delete: ");
+        name = input.nextLine();
+    }
+
+    public boolean deleteConsumable(ArrayList<Art> artArrayList){
+        Art art = new Art();
+        art = findConsumable(artArrayList);
+        if(art != null){
+            artArrayList.remove(art);
+            return true;
+        }
+        return false;
+    }
+
+
+    public Art findConsumable(ArrayList<Art> artList){
+        for(Art art : artList){
+            ArtView view = new ArtView();
+            ArtController controller = new ArtController(art, view);
+            if(controller.getArtName().equals(name)){
+                if(!art.isEndingDateUpdated())
+                    return art;
+                else{
+                    System.out.printf("You can not update %s TWICE!%n", name);
+                }
+            }
+        }
+        System.out.println("The Name You have entered, is Not Found");
+        return null;
     }
 
 

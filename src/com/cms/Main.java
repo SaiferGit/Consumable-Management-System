@@ -48,12 +48,14 @@ public class Main {
                     break;
 
                 case 2: // Edit a consumable
-                    EditConsumable delconsumable = new EditConsumable();
-                    delconsumable.findandEditConsumable(artList);
+                    EditConsumable editconsumable = new EditConsumable();
+                    editconsumable.findandEditConsumable(artList);
                     break;
 
                 case 3: // Delete a consumable
-                    //DeleteConsumable delconsumable = new DeleteConsumable();
+                    DeleteConsumable delconsumable = new DeleteConsumable();
+                    delconsumable.initials();
+                    if(delconsumable.deleteConsumable(artList)) System.out.println("Successfully Deleted");
                     break;
 
                 case 4: // See the list of consumables
