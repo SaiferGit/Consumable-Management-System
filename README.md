@@ -1,3 +1,6 @@
+<p align="center"> <img src="https://github.com/SaiferGit/Consumable-Management-System/blob/main/Snapshots/java%20icon.png" width="150"> </p>
+<hr>
+
 # Consumable-Management-System
 Welcome. **This CLI project is under instruction of DSI**.
 
@@ -56,4 +59,4 @@ Consumable with types:<br>
 
 - See overall info
 See Overall informations: <br>
-<p align="center"><img src="https://github.com/SaiferGit/Consumable-Management-System/blob/main/Snapshots/5_ss1.png" width="750"> </p>
+<p align="center"><img src="https://github.com/SaiferGit/Consumable-Management-System/blob/main/Snapshots/5_ss1.png" width="500"> </p>
