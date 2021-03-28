@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 import static com.cms.database.StringBase.endingDateWarningMessage;
 
-public class EditConsumable extends DateValidator implements Printable, Inputtable{
+public class EditConsumable extends Validator implements Printable, Inputtable{
 
     private Scanner input = new Scanner(System.in);;
     private String  name, endingDate;
@@ -67,6 +67,9 @@ public class EditConsumable extends DateValidator implements Printable, Inputtab
         art.setTotalConsumptionDays(totalConsumptionDays);
         System.out.println("Enter Rating: ");
         rating = input.nextDouble();
+        if(rating != 0 || !isRatingValid(rating))
+            rating = 0.0;
+
         art.setRating(rating);
         System.out.println(endingDateWarningMessage);
         if(!input.nextLine().equals("\n")){
