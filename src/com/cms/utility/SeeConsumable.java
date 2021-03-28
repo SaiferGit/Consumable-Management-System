@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 public class SeeConsumable implements Printable{
 
-    Scanner input;
-    int choice;
+    private Scanner input;
+    private int choice;
 
     @Override
     public void initials() {

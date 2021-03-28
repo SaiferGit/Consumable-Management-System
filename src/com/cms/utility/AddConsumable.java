@@ -4,14 +4,19 @@ import com.cms.Main;
 import com.cms.database.StringBase;
 import com.cms.model.Art;
 
+import java.text.DateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class AddConsumable implements Printable{
+public class AddConsumable extends DateValidator implements Printable{
     Scanner input;
-    String name, startingDate, endingDate, type;
-    int choice, totalConsumptionDays;
-    double rating, totalConsumptionHours;
+    private String name, startingDate, endingDate, type;
+    private int choice, totalConsumptionDays;
+    private double rating, totalConsumptionHours;
+
 
     Art art;
 
@@ -38,9 +43,15 @@ public class AddConsumable implements Printable{
         input.nextLine();
         name = input.nextLine();
         System.out.print("\nEnter Starting Date (YYYY-MM-DD) [Enter 0 to ignore]: ");
+
         startingDate = input.next();
+        if(!isDateValid(startingDate))
+            startingDate = "0";
+
         System.out.print("\nEnter Ending Date (YYYY-MM-DD) [Enter 0 to ignore]: ");
         endingDate = input.next();
+        if(!isDateValid(endingDate))
+            endingDate = "0";
         System.out.print("\nEnter Rating: ");
         rating = input.nextDouble();
         System.out.print("\nEnter Total Consumption Days: ");
@@ -52,4 +63,6 @@ public class AddConsumable implements Printable{
         return art;
 
     }
+
+
 }

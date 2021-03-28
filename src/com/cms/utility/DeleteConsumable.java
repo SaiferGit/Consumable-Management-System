@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class DeleteConsumable implements Printable{
 
     private String name;
-    Scanner input = new Scanner(System.in);
+    private Scanner input = new Scanner(System.in);
 
     @Override
     public void initials() {
